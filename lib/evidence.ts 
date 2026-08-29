@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { supabase } from "./supabase";  // ← ESTE IMPORT FALTABA
 
 /**
  * EVIDENCE CHAIN – Cumple NOM-151 e ISO 27037
