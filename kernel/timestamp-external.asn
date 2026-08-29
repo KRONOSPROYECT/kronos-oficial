@@ -1,0 +1,3 @@
+cd kernel
+echo "KRONOS-360-TIMESTAMP-2026-08-28T14:22:11.341Z" > timestamp-external.asn
+echo "Creado timestamp-external.asn"
