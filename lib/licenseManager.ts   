@@ -1,0 +1,62 @@
+import { supabase } from "./supabase";
+import { guardian } from "./guardian";
+
+export type LicenseStatus = "ACTIVE" | "EXPIRED" | "SUSPENDED";
+
+export interface License {
+  tenantId: string;
+  status: LicenseStatus;
+  expiryDate: string;
+  maxFolios: number;
+  usedFolios: number;
+}
+
+export class LicenseManager {
+  private static instance: LicenseManager;
+  private constructor() {}
+
+  static getInstance(): LicenseManager {
+    if (!LicenseManager.instance) {
+      LicenseManager.instance = new LicenseManager();
+    }
+    return LicenseManager.instance;
+  }
+
+  /**
+   * Verifica si un tenant tiene licencia activa
+   */
+  async checkLicense(tenantId: string): Promise<boolean> {
+    const { data } = await supabase
+      .from("licenses")
+      .select("*")
+      .eq("tenantId", tenantId)
+      .single();
+
+    if (!data) return false;
+
+    const now = new Date();
+    const expiry = new Date(data.expiryDate);
+
+    if (data.status !== "ACTIVE" || now > expiry) {
+      await guardian.logEvent("LICENSE_BLOCKED", { tenantId, reason: "No pagó" });
+      return false;
+    }
+
+    if (data.usedFolios >= data.maxFolios) {
+      await guardian.logEvent("FOLIO_LIMIT_REACHED", { tenantId });
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Bloquea a un tenant que no pagó
+   */
+  async suspendTenant(tenantId: string) {
+    await supabase.from("licenses").update({ status: "SUSPENDED" }).eq("tenantId", tenantId);
+    await guardian.logEvent("TENANT_SUSPENDED", { tenantId, reason: "Pago vencido" });
+  }
+}
+
+export const licenseManager = LicenseManager.getInstance();
