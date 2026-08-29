@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const hasLicense = await licenseManager.checkLicense(tenantId);
   if (!hasLicense) {
     await guardian.logEvent("REGISTER_BLOCKED", { tenantId, reason: "Licencia inactiva" });
-    return NextResponse.json({ error: "Licencia inactiva" }, { status: 403 });
+    return NextResponse.json({ error: "Licencia inactiva. Contacte a KRONOS 360." }, { status: 403 });
   }
 
   // 2. Registrar folio
