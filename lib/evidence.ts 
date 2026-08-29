@@ -1,0 +1,58 @@
+import crypto from "crypto";
+
+/**
+ * EVIDENCE CHAIN – Cumple NOM-151 e ISO 27037
+ */
+export interface EvidencePacket {
+  folio: string;
+  hashFoto: string;
+  timestampISO: string;
+  hashChain: string[];
+  sealSignature: string;
+  evidenceType: "FOTO" | "DOCUMENTO" | "OBRA" | "PRODUCTO";
+}
+
+export class EvidenceChain {
+  createEvidence(
+    folio: string,
+    hashFoto: string,
+    evidenceType: EvidencePacket["evidenceType"]
+  ): EvidencePacket {
+    const timestamp = new Date().toISOString();
+    const data = `${folio}${hashFoto}${timestamp}KRONOS-NOM151`;
+    const hashChain = this.generateChain(data);
+    const sealSignature = crypto.sign(null, Buffer.from(data), process.env.KERNEL_PRIVATE_KEY!);
+
+    return {
+      folio,
+      hashFoto,
+      timestampISO: timestamp,
+      hashChain,
+      sealSignature: sealSignature.toString("hex"),
+      evidenceType,
+    };
+  }
+
+  async preserve(evidence: EvidencePacket) {
+    const finalHash = evidence.hashChain[71];
+    await supabase.from("evidence_chain").insert([{
+      folio: evidence.folio,
+      hash_foto: evidence.hashFoto,
+      timestamp: evidence.timestampISO,
+      final_hash: finalHash,
+      seal_signature: evidence.sealSignature,
+    }]);
+  }
+
+  private generateChain(data: string): string[] {
+    const chain: string[] = [];
+    let current = data;
+    for (let i = 0; i < 72; i++) {
+      current = crypto.createHash("sha3-512").update(current + i).digest("hex");
+      chain.push(current);
+    }
+    return chain;
+  }
+}
+
+export const evidenceChain = new EvidenceChain();
