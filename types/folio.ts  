@@ -1,0 +1,10 @@
+export interface Folio {
+  id: string;
+  folio: string;
+  hash: string;
+  block: number;
+  estado: "ORIGINAL VERIFICADO" | "CLON INVALIDADO" | "NO REGISTRADO";
+  timestamp: string;
+  tenantId: string;
+  evidenceType: "FOTO" | "DOCUMENTO" | "OBRA" | "PRODUCTO";
+}
