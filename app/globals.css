@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(to right, #B88A2D, #ffd700, #B88A2D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-holo {
+  border: 1px solid rgba(184, 138, 45, 0.5);
+  box-shadow: 0 0 20px rgba(184, 138, 45, 0.2), inset 0 0 20px rgba(184, 138, 45, 0.1);
+}
