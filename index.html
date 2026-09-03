@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KRONOS 360 · Anti-Falsificación</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Fondo espacial/tecnológico -->
+    <div class="space-bg"></div>
+    <canvas id="estrellasCanvas"></canvas>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="nav-container">
+            <span class="logo">🔒 KRONOS 360</span>
+            <div class="nav-links">
+                <a href="#tecnologia">Tecnología</a>
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#" class="btn-demo">Ver Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenedor">
+        <!-- HERO -->
+        <header class="hero">
+            <h1>KRONOS 360</h1>
+            <p class="subtitulo">Capa de Confianza Anti-Falsificación</p>
+            <p class="descripcion-hero">
+                El sistema que el mercado negro no puede clonar.
+            </p>
+            <div class="badges">
+                <span class="badge">🔐 SHA-256</span>
+                <span class="badge">⛓️ Polygon</span>
+                <span class="badge">⏱️ TimeLock ISO 8601</span>
+                <span class="badge">📜 NOM-151</span>
+            </div>
+            <div class="hero-buttons">
+                <button onclick="alert('Demo: /verify/FDV-DEMO-00001')">Ver Original</button>
+                <button class="btn-secundario" onclick="alert('Demo: /verify/CLON-DEMO-99999')">Ver Clon</button>
+            </div>
+        </header>
+
+        <!-- SECCIÓN TECNOLOGÍA -->
+        <section id="tecnologia" class="seccion">
+            <h2>🛠️ Tecnología</h2>
+            <div class="grid-tarjetas">
+                <div class="card"><strong>Next.js 14</strong> + TypeScript + Tailwind</div>
+                <div class="card"><strong>Supabase</strong> (UNIQUE anti-clon)</div>
+                <div class="card"><strong>Polygon</strong> (Hash en blockchain)</div>
+                <div class="card"><strong>Kernel Offline</strong> (72 hashes + Ed25519)</div>
+                <div class="card"><strong>Protocolo KÓDICE</strong> (MIS, MAS, MRA, MTI, MAR)</div>
+                <div class="card"><strong>Guardian Assistant</strong> (Auditoría en vivo)</div>
+            </div>
+            <div class="timestamp-box">
+                ⏱️ Sello de tiempo actual (ISO 8601): <span id="horaActual">Cargando...</span>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PRODUCTOS -->
+        <section id="productos" class="seccion">
+            <h2>📦 Productos</h2>
+            <div class="grid-tarjetas">
+                <div class="card producto">
+                    <h3>FDV ORIGINAL SYSTEM</h3>
+                    <p>Sello físico + QR con Realidad Aumentada</p>
+                </div>
+                <div class="card producto">
+                    <h3>KÓDICE 360</h3>
+                    <p>Certificado forense digital infalsificable</p>
+                </div>
+                <div class="card producto">
+                    <h3>Licencia B2B / API</h3>
+                    <p>Multi-tenant para empresas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="seccion contacto">
+            <h2>📞 Contacto</h2>
+            <div class="contacto-info">
+                <p><strong>Marco Antonio Rojas Valdovinos</strong></p>
+                <p>📍 Toluca, México</p>
+                <p>📱 722 586 2335</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 KRONOS 360. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
