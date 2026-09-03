@@ -7,8 +7,10 @@
     <meta name="description" content="Sistema antifalsificación con tecnología SHA-256, Polygon, y TimeLock ISO 8601. Protege tus productos con la capa que el mercado negro no puede clonar.">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a0a0a">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
     <style>
-        /* ===== RESET ===== */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +30,7 @@
             padding: 0 20px;
         }
 
-        /* ===== HEADER ===== */
+        /* Header */
         .header {
             padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -102,6 +104,8 @@
             transition: all 0.2s;
             font-size: 0.85rem;
             font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-outline:hover {
@@ -119,6 +123,8 @@
             transition: all 0.2s;
             font-weight: 600;
             font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -126,7 +132,30 @@
             transform: translateY(-1px);
         }
 
-        /* ===== HERO ===== */
+        .btn-secondary {
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            background: transparent;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.8rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
+        .btn-secondary.small {
+            padding: 6px 14px;
+            font-size: 0.75rem;
+        }
+
+        /* Hero */
         .hero {
             padding: 80px 0 60px;
             text-align: center;
@@ -220,7 +249,7 @@
             flex-wrap: wrap;
         }
 
-        /* ===== DEMO ===== */
+        /* Demo */
         .demo-section {
             padding: 60px 0;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -306,28 +335,7 @@
             color: #555;
         }
 
-        .btn-secondary {
-            padding: 8px 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            background: transparent;
-            color: #aaa;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.8rem;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-        }
-
-        .btn-secondary.small {
-            padding: 6px 14px;
-            font-size: 0.75rem;
-        }
-
-        /* ===== TECNOLOGÍA ===== */
+        /* Tech */
         .tech-section {
             padding: 60px 0;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -377,7 +385,100 @@
             color: #666;
         }
 
-        /* ===== FOOTER ===== */
+        /* Planes */
+        .planes-section {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .planes-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .planes-section .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .plan-card {
+            padding: 30px 24px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.08);
+        }
+
+        .plan-card.destacado {
+            border-color: #3b82f6;
+            background: rgba(59,130,246,0.05);
+        }
+
+        .plan-card .etiqueta {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3b82f6;
+            color: white;
+            padding: 2px 16px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .plan-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .plan-card .precio {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f5f5f5;
+            margin-bottom: 16px;
+        }
+
+        .plan-card .precio span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .plan-card ul li {
+            padding: 6px 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .plan-card ul li.checked {
+            color: #f5f5f5;
+        }
+
+        /* Footer */
         footer {
             padding: 40px 0;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -393,7 +494,34 @@
             margin-top: 8px;
         }
 
-        /* ===== RESPONSIVE ===== */
+        footer a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #aaa;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        /* Offline */
+        #offline-indicator {
+            display: none;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 2.5rem;
@@ -406,9 +534,13 @@
             }
             nav {
                 gap: 12px;
+                justify-content: center;
             }
             .tech-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            .plan-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -424,18 +556,13 @@
                 align-items: stretch;
                 gap: 8px;
             }
-            nav {
+            .logo {
                 justify-content: center;
             }
-        }
-
-        /* ===== OFFLINE INDICATOR ===== */
-        #offline-indicator {
-            display: none;
-            margin-top: 12px;
-            font-size: 0.8rem;
-            color: #555;
-            text-align: center;
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -450,6 +577,7 @@
             <nav>
                 <a href="#tecnologia">Tecnología</a>
                 <a href="#productos">Productos</a>
+                <a href="#planes">Planes</a>
                 <a href="#demo">Ver Demo</a>
                 <a href="dashboard.html" class="btn-outline">Mi Empresa</a>
                 <a href="verify.html" class="btn-primary">Verificar</a>
@@ -467,6 +595,7 @@
                 <span class="verified">✅ Ver Original</span>
                 <span>🔴 Ver Clon</span>
                 <span>🔑 KRONOS-MD-33</span>
+                <span>📜 ISO 12931</span>
             </div>
             <div class="hero-actions">
                 <a href="#demo" class="btn-primary">Probar Demo</a>
@@ -542,6 +671,57 @@
         </div>
     </section>
 
+    <!-- ===== PLANES ===== -->
+    <section id="planes" class="planes-section">
+        <div class="container">
+            <h3>📊 Paga solo por lo que usas</h3>
+            <p class="subtitle">Sin compromisos. Escala según tu volumen de productos.</p>
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <h4>Básico</h4>
+                    <p class="precio">$0.50 <span>/folio</span></p>
+                    <ul>
+                        <li class="checked">✅ Trazabilidad básica</li>
+                        <li class="checked">✅ Registro de 3 puntos</li>
+                        <li class="checked">✅ Escaneo QR</li>
+                        <li>❌ Auditoría IA</li>
+                        <li>❌ Informe pericial</li>
+                    </ul>
+                    <button class="btn-secondary btn-coming-soon">Contratar</button>
+                </div>
+
+                <div class="plan-card destacado">
+                    <span class="etiqueta">Más popular</span>
+                    <h4>Pro</h4>
+                    <p class="precio">$2.00 <span>/folio</span></p>
+                    <ul>
+                        <li class="checked">✅ Trazabilidad avanzada</li>
+                        <li class="checked">✅ Escaneos ilimitados</li>
+                        <li class="checked">✅ Auditoría IA automática</li>
+                        <li class="checked">✅ Informe pericial</li>
+                        <li class="checked">✅ Sello KRONOS-MD-33</li>
+                        <li class="checked">✅ Offline mode</li>
+                    </ul>
+                    <button class="btn-primary btn-coming-soon">Contratar</button>
+                </div>
+
+                <div class="plan-card">
+                    <h4>Enterprise</h4>
+                    <p class="precio">$5.00 <span>/folio</span></p>
+                    <ul>
+                        <li class="checked">✅ Todo lo Pro</li>
+                        <li class="checked">✅ Peritaje humano</li>
+                        <li class="checked">✅ API integración</li>
+                        <li class="checked">✅ Auditoría en tiempo real</li>
+                        <li class="checked">✅ Dashboard personalizado</li>
+                        <li class="checked">✅ Soporte 24/7</li>
+                    </ul>
+                    <button class="btn-secondary btn-contact">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== DEMO ===== -->
     <section id="demo" class="demo-section" style="border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
@@ -568,6 +748,12 @@
     <footer>
         <div class="container">
             <p>© 2026 KRONOS 360 · Capa de Confianza Anti-Falsificación</p>
+            <div class="footer-links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">ISO 12931</a>
+                <span style="color: #444;">v1.0.0</span>
+            </div>
             <p class="seal">🔒 Sellado con KRONOS-MD-33-467162326 · Cumple NOM-151 · ISO 12931 · ISO 22382</p>
         </div>
     </footer>
@@ -575,7 +761,9 @@
     <!-- ===== SCRIPTS ===== -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('✅ KRONOS 360: Service Worker registrado'))
+                .catch(() => console.log('⚠️ KRONOS 360: SW no disponible'));
         }
 
         window.addEventListener('online', () => {
